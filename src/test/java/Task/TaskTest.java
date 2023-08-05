@@ -7,6 +7,15 @@ class TaskTest {
 
 
     @Test
+    public void testTask() {
+        int expected = 5;
+        Task task = new Task (expected);
+
+
+        int actual = task.getId();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
     public void testSimpleTaskMatches() {
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
