@@ -51,9 +51,19 @@ class TaskTest {
         Meeting meeting = new Meeting(555, "Выкатка 3й версии приложения", "Приложение НетоБанка", "Во вторник после обеда");
 
 
-        boolean actual = meeting.matches("Выкатка 3й версии приложения");
+        boolean actual = meeting.matches("Выкатка");
 
         Assertions.assertTrue(actual);
+    }
+
+    @Test
+    public void testMeetingTopicNotMatches() {
+        Meeting meeting = new Meeting(555, "Выкатка 3й версии приложения", "Приложение НетоБанка", "Во вторник после обеда");
+
+
+        boolean actual = meeting.matches("Обкатка");
+
+        Assertions.assertFalse(actual);
     }
 
     @Test
@@ -61,22 +71,25 @@ class TaskTest {
         Meeting meeting = new Meeting(555, "Выкатка 3й версии приложения", "Приложение НетоБанка", "Во вторник после обеда");
 
 
-        boolean actual = meeting.matches("Приложение НетоБанка");
+        boolean actual = meeting.matches("НетоБанк");
 
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void testMeetingNotMatches() {
+    public void testMeetingProjectNotMatches() {
         Meeting meeting = new Meeting(555, "Выкатка 3й версии приложения", "Приложение НетоБанка", "Во вторник после обеда");
 
 
-        boolean actual = meeting.matches("Приложение АльфаБанка");
+        boolean actual = meeting.matches("АльфаБанк");
 
         Assertions.assertFalse(actual);
     }
 
+
 }
+
+
 
 
 
